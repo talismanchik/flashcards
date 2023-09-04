@@ -1,0 +1,52 @@
+@import '../../../styles/colors';
+
+@mixin button {
+  all: unset;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+  padding: 0.375rem 1.75rem;
+
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+
+  background-color: transparent;
+  border-radius: 0.24rem;
+}
+
+.primary {
+  @include button;
+
+  background-color: var(--color-accent-500);
+}
+
+.secondary {
+  @include button;
+
+  background-color: var(--color-dark-300);
+}
+
+.tertiary {
+  @include button;
+
+  color: var(--color-accent-500);
+  border: 1px solid var(--color-accent-500);
+
+}
+
+.link {
+  @include button;
+
+  color: var(--color-accent-500);
+}
+
+.fullWidth {
+  @include button;
+
+  width: 100%;
+  background-color: var(--color-accent-500);
+
+}
