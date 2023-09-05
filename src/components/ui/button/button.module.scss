@@ -25,9 +25,7 @@
     opacity: 0.5;
   }
 
-  &.fullWidth {
-    width: 100%;
-  }
+
 }
 
 .primary {
@@ -91,6 +89,10 @@
   &:active:enabled {
     color: var(--color-accent-700)
   }
+}
+
+.fullWidth {
+  width: 100%;
 }
 
 
