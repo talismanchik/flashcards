@@ -21,8 +21,13 @@ export type TypographyProps<T extends ElementType> = {
   className?: string
 } & ComponentPropsWithoutRef<T>
 
-export const Typography = <T extends ElementType = 'p'>(props: TypographyProps<T>) => {
-  const { variant = 'body1', className, as: Component = 'p', ...otherProps } = props
+export function Typography<T extends ElementType = typeof T>({
+  as,
+  className,
+  variant = 'body1',
+  ...otherProps
+}: TypographyProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof TypographyProps<T>>) {
+  const Component = as || 'p'
 
   return <Component className={`${s[variant]} ${className}`} {...otherProps} />
 }

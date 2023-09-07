@@ -1,0 +1,28 @@
+button {
+  all: unset;
+}
+
+.checkboxContainer {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  .checkboxRoot {
+    .checkboxIndicator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 18px;
+      height: 18px;
+
+      color: var(--color-dark-900);
+
+      background-color: var(--color-light-100);
+    }
+  }
+
+  .label {
+    background-color: #0a6638;
+  }
+}
