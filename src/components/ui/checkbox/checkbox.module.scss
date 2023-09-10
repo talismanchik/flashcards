@@ -19,10 +19,25 @@ button {
       color: var(--color-dark-900);
 
       background-color: var(--color-light-100);
+      border-radius: 2px;
+
+      &:disabled {
+        color: var(--color-light-700);
+        background-color: var(--color-dark-100);
+      }
+    }
+
+    //&:focus {
+    //  background-color: var(--color-dark-100);
+    //}
+
+    &:disabled {
+      color: var(--color-light-700);
+      background-color: var(--color-dark-100);
     }
   }
 
   .label {
-    background-color: #0a6638;
+
   }
 }
