@@ -5,9 +5,13 @@ button {
 .container {
   .label {
     cursor: pointer;
+
     display: flex;
     align-items: center;
+
     box-sizing: border-box;
+
+    color: yellow;
 
 
 
@@ -41,7 +45,8 @@ button {
 
         &:disabled{
           cursor: initial;
-          background-color: var(--color-dark-900);
+          background-color: var(--color-dark-100);
+          border: none;
         }
 
         .indicator {
@@ -55,6 +60,11 @@ button {
         }
       }
     }
+
+    &:disabled{
+      color: blue;
+    }
+
   }
 }
 

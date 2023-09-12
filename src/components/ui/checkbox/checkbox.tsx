@@ -20,7 +20,14 @@ export const Checkbox: FC<CheckboxProps> = ({ className, checked, onChange, labe
     <div className={s.container}>
       <Typography variant={'body2'} as={'label'} className={s.label} htmlFor="c1">
         <div className={s.buttonWrapper}>
-          <Root className={s.root} disabled={disabled} defaultChecked checked={checked} id="c1">
+          <Root
+            className={s.root}
+            disabled={disabled}
+            defaultCheked
+            //checked={checked}
+            //onCheckedChange={onChange}
+            id="c1"
+          >
             <Indicator className={s.indicator}>
               <CheckIcon />
             </Indicator>

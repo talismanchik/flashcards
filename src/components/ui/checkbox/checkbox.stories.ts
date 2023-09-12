@@ -15,11 +15,13 @@ export const CheckboxWithLabel: Story = {
   args: {
     label: 'Click here',
     checked: true,
+    disabled: false,
   },
 }
 export const CheckboxWithoutLabel: Story = {
   args: {
     label: '',
     checked: true,
+    disabled: false,
   },
 }
