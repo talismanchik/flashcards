@@ -17,13 +17,15 @@ export type CheckboxProps = {
 
 export const Checkbox: FC<CheckboxProps> = ({ className, checked, onChange, label, disabled }) => {
   return (
-    <div className={s.checkboxContainer}>
-      <Root className={s.checkboxRoot} defaultChecked id="c1">
-        <Indicator className={s.checkboxIndicator}>
-          <CheckIcon />
-        </Indicator>
-      </Root>
+    <div className={s.container}>
       <Typography variant={'body2'} as={'label'} className={s.label} htmlFor="c1">
+        <div className={s.buttonWrapper}>
+          <Root className={s.root} disabled={disabled} defaultChecked checked={checked} id="c1">
+            <Indicator className={s.indicator}>
+              <CheckIcon />
+            </Indicator>
+          </Root>
+        </div>
         {label}
       </Typography>
     </div>
