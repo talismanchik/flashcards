@@ -13,13 +13,30 @@ export type CheckboxProps = {
   onChange?: (checked: boolean) => void
   label?: string
   disabled?: boolean
+  position?: 'left'
 }
 
-export const Checkbox: FC<CheckboxProps> = ({ className, checked, onChange, label, disabled }) => {
+export const Checkbox: FC<CheckboxProps> = ({
+  position,
+  className,
+  checked,
+  onChange,
+  label,
+  disabled,
+}) => {
   return (
-    <div className={s.container}>
-      <Typography variant={'body2'} as={'label'} className={s.label} htmlFor="c1">
-        <div className={s.buttonWrapper}>
+    <div className={`${s.container} ${className}`}>
+      <Typography
+        variant={'body2'}
+        as={'label'}
+        className={`${s.label} ${disabled && s.disabled}`}
+        htmlFor="c1"
+      >
+        <div
+          className={`${s.buttonWrapper} ${disabled && s.disabled} ${
+            position === 'left' && s.left
+          }`}
+        >
           <Root
             className={s.root}
             disabled={disabled}
