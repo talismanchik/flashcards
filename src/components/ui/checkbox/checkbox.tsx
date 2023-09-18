@@ -37,7 +37,6 @@ export const Checkbox: FC<CheckboxProps> = ({
             position === 'left' && s.left
           }`}
         >
-          <div></div>
           <Root
             className={s.root}
             disabled={disabled}

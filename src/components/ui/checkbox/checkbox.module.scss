@@ -15,18 +15,25 @@ button {
       color: var(--color-dark-100);
     }
 
+
+
     .buttonWrapper {
       display: flex;
       align-items: center;
       justify-content: center;
 
       box-sizing: border-box;
-      width: 36px;
-      height: 36px;
+      width: 32px;
+      height: 32px;
 
       color: var(--color-dark-900);
 
+
       border-radius: 50%;
+
+      &:active {
+        background-color: #1ea7fd;
+      }
 
 
       .root {
@@ -38,15 +45,21 @@ button {
         width: 18px;
         height: 18px;
 
-        background-color: var(--color-dark-900);
-        border: 2px solid var(--color-light-900);
+        background-color: var(--color-light-100);
         border-radius: 2px;
 
+        &[data-state = 'unchecked'] {
+          background-color: var(--color-dark-900);
+          border: 2px solid var(--color-light-900);
+        }
 
-        &:disabled {
-          cursor: initial;
+        &[data-state = 'unchecked']:disabled {
+          border: 2px solid var(--color-dark-100);
+        }
+
+        &[data-state = 'checked']:disabled {
+          color: var(--color-light-700);
           background-color: var(--color-dark-100);
-          border: none;
         }
 
 
@@ -61,6 +74,14 @@ button {
         }
       }
     }
+
+    &:hover:not(.disabled) .buttonWrapper {
+        background-color: var(--color-dark-500);
+
+        .root[data-state='unchecked']{
+            background-color: var(--color-dark-500);
+        }
+      }
   }
 }
 
