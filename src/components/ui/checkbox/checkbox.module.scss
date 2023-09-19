@@ -16,7 +16,6 @@ button {
     }
 
 
-
     .buttonWrapper {
       display: flex;
       align-items: center;
@@ -30,10 +29,6 @@ button {
 
 
       border-radius: 50%;
-
-      &:active {
-        background-color: #1ea7fd;
-      }
 
 
       .root {
@@ -62,6 +57,9 @@ button {
           background-color: var(--color-dark-100);
         }
 
+        &:focus-visible {
+          outline: 2px solid var(--color-info-700);
+        }
 
         .indicator {
           display: flex;
@@ -76,12 +74,20 @@ button {
     }
 
     &:hover:not(.disabled) .buttonWrapper {
-        background-color: var(--color-dark-500);
+      background-color: var(--color-dark-500);
 
-        .root[data-state='unchecked']{
-            background-color: var(--color-dark-500);
-        }
+      .root[data-state='unchecked'] {
+        background-color: var(--color-dark-500);
       }
+    }
+
+    &:active:not(.disabled) .buttonWrapper{
+      background-color: var(--color-dark-100);
+
+      .root[data-state='unchecked']{
+        background-color: var(--color-dark-100);
+      }
+    }
   }
 }
 
