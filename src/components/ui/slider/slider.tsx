@@ -16,7 +16,7 @@ export const Slider = () => {
         <Thumb className={s.thumb} />
         <Thumb className={s.thumb} />
       </Root>
-      <div className={s.value}>{100}</div>
+      <div className={s.value}>{10}</div>
     </div>
   )
 }
