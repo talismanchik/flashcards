@@ -1,0 +1,132 @@
+@mixin text {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-regular);
+  font-style: normal;
+  line-height: (--line-height-m);
+  color: var(--color-light-100);
+  text-align: center;
+  text-decoration: none;
+
+  &:disabled {
+  }
+}
+
+@mixin mainBlock {
+  @include text;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 196.5px;
+  height: 36px;
+  padding-left: 12px;
+
+  background-color: black;
+  border: 1px solid var(--color-dark-300);
+}
+
+.selectElement {
+  @include text;
+
+  display: flex;
+  flex-direction: column;
+
+  label {
+    width: 65px;
+    height: 24px;
+    margin: 0;
+
+    color: var(--color-dark-100);
+    text-align: start;
+  }
+
+  .disabledLabel {
+    color: var(--color-dark-300);
+  }
+}
+
+.selectBlock {
+  @include text;
+  @include mainBlock;
+
+  border-radius: 2px;
+
+  &:hover {
+    background-color: var(--color-dark-500);
+    border: 1px solid var(--color-dark-100);
+  }
+
+  &:active {
+    border: 1px solid var(--color-dark-100);
+  }
+
+  &:focus {
+    border: 1px solid var(--color-info-700);
+  }
+
+  &:disabled {
+    color: var(--color-dark-300);
+    background-color: black;
+    border: 1px solid var(--color-dark-300);
+  }
+}
+
+.selectBlockOpen {
+  @include text;
+  @include mainBlock;
+
+  border-radius: 2px 2px 0 0;
+
+  &:hover {
+    background-color: var(--color-dark-500);
+    border: 1px solid var(--color-dark-100);
+  }
+
+  &:active {
+    border: 1px solid var(--color-dark-100);
+  }
+
+  &:focus {
+    border: 1px solid var(--color-info-700);
+  }
+}
+
+.selectBlockIcon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-right: 12px;
+
+  &:disabled {
+    color: var(--color-dark-300);
+  }
+}
+
+.selectContent {
+  width: 210px;
+  color: var(--color-light-100);
+  border: 1px solid var(--color-dark-300);
+  border-radius: 0 0 2px 2px;
+
+  &:hover {
+    border: 1px solid var(--color-dark-300);
+  }
+}
+
+.selectItem {
+  display: flex;
+  align-items: center;
+
+  width: 210px;
+  height: 36px;
+  padding-left: 12px;
+
+  &:hover {
+    color: var(--color-accent-300);
+    background-color: var(--color-accent-900);
+  }
+}

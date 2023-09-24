@@ -19,8 +19,7 @@ export type CheckboxProps = {
 export const Checkbox: FC<CheckboxProps> = ({
   position,
   className,
-  checked,
-  onChange,
+
   label,
   disabled,
 }) => {
@@ -40,7 +39,6 @@ export const Checkbox: FC<CheckboxProps> = ({
           <Root
             className={s.root}
             disabled={disabled}
-            defaultCheked
             //checked={checked}
             //onCheckedChange={onChange}
             id="c1"
