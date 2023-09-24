@@ -6,6 +6,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -20,12 +21,11 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    // ...rest of the template
     "types": ["node"],
     "paths": {
       "@/*": ["./src/*"]
-
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
-}}
+}

@@ -21,7 +21,7 @@ export type TypographyProps<T extends ElementType> = {
   className?: string
 } & ComponentPropsWithoutRef<T>
 
-export function Typography<T extends ElementType = typeof T>({
+export function Typography<T extends ElementType = 'p'>({
   as,
   className,
   variant = 'body1',
