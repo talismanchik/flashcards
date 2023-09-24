@@ -1,5 +1,7 @@
 import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 
+import { clsx } from 'clsx'
+
 import s from './typography.module.scss'
 
 export type TypographyProps<T extends ElementType> = {
@@ -29,5 +31,9 @@ export function Typography<T extends ElementType = 'p'>({
 }: TypographyProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof TypographyProps<T>>) {
   const Component = as || 'p'
 
-  return <Component className={`${s[variant]} ${className}`} {...otherProps} />
+  const classNames = {
+    root: clsx(s[variant], className),
+  }
+
+  return <Component className={classNames.root} {...otherProps} />
 }

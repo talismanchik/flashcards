@@ -2,6 +2,7 @@ import { FC } from 'react'
 
 import { Root, Indicator } from '@radix-ui/react-checkbox'
 import { CheckIcon } from '@radix-ui/react-icons'
+import { clsx } from 'clsx'
 
 import s from './checkbox.module.scss'
 
@@ -19,31 +20,31 @@ export type CheckboxProps = {
 export const Checkbox: FC<CheckboxProps> = ({
   position,
   className,
-
+  checked,
+  onChange,
   label,
   disabled,
 }) => {
+  const classNames = {
+    container: clsx(s.container, className),
+    label: clsx(s.label, disabled && s.disabled),
+    buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled, position === 'left' && s.left),
+    root: clsx(s.root),
+    indicator: clsx(s.indicator),
+  }
+
   return (
-    <div className={`${s.container} ${className}`}>
-      <Typography
-        variant={'body2'}
-        as={'label'}
-        className={`${s.label} ${disabled && s.disabled}`}
-        htmlFor="c1"
-      >
-        <div
-          className={`${s.buttonWrapper} ${disabled && s.disabled} ${
-            position === 'left' && s.left
-          }`}
-        >
+    <div className={classNames.container}>
+      <Typography variant={'body2'} as={'label'} className={classNames.label} htmlFor="c1">
+        <div className={classNames.buttonWrapper}>
           <Root
-            className={s.root}
+            className={classNames.root}
             disabled={disabled}
-            //checked={checked}
-            //onCheckedChange={onChange}
+            checked={checked}
+            onCheckedChange={onChange}
             id="c1"
           >
-            <Indicator className={s.indicator}>
+            <Indicator className={classNames.indicator}>
               <CheckIcon />
             </Indicator>
           </Root>
