@@ -48,7 +48,7 @@
 }
 
 .link1,
-.link1:visited{
+.link1:visited {
   @include typography(var(--font-size-s), var(--font-weight-regular), var(--line-height-m));
 
   cursor: pointer;
@@ -57,7 +57,7 @@
 }
 
 .link2,
-.link2:visited{
+.link2:visited {
   @include typography(var(--font-size-xs), var(--font-weight-regular), var(--line-height-s));
 
   cursor: pointer;
