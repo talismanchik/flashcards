@@ -26,7 +26,7 @@ const ModalStory = (args: ModalProps) => {
   return (
     <>
       <Button onClick={() => setModalOpen(true)}> Open</Button>
-      <Modal open={modalOpen} setOpen={setModalOpen}>
+      <Modal title={args.title} open={modalOpen} setOpen={setModalOpen}>
         <div>
           <Typography variant={'body1'}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
