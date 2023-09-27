@@ -15,6 +15,7 @@ export type CheckboxProps = {
   label?: string
   disabled?: boolean
   position?: 'left'
+  onCheckedChange?: (checked: boolean) => void
 }
 
 export const Checkbox: FC<CheckboxProps> = ({
