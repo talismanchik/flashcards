@@ -3,9 +3,10 @@ import { useController, useForm } from 'react-hook-form'
 import { Button } from '../../ui/button'
 import { TextField } from '../../ui/text-field'
 
-import { Checkbox } from '@/components/ui/checkbox'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { ControlledCheckbox } from '@/components/ui/controlled/controlled-checkbox/controlled-checkbox.tsx'
+import { DevTool } from '@hookform/devtools'
 
 export const LoginForm = () => {
   const loginSchema = z.object({
@@ -29,9 +30,7 @@ export const LoginForm = () => {
     console.log(data)
   }
 
-  const {
-    field: { value, onChange },
-  } = useController({
+  const {} = useController({
     name: 'rememberMe',
     control,
     defaultValue: false,
@@ -39,13 +38,14 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <DevTool control={control} />
       <TextField {...register('email')} label={'email'} errorMessage={errors.email?.message} />
       <TextField
         {...register('password')}
         label={'password'}
         errorMessage={errors.password?.message}
       />
-      <Checkbox label={'remember me'} onCheckedChange={onChange} checked={value} />
+      <ControlledCheckbox label={'remember me'} control={control} name={'rememberMe'} />
       <Button type="submit">Submit</Button>
     </form>
   )
