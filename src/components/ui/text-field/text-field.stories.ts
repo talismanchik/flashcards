@@ -1,4 +1,4 @@
-import {Meta} from "@storybook/blocks";
+import {Meta} from "@storybook/react";
 import {StoryObj} from "@storybook/react";
 import {TextField} from "@/components/ui/text-field/text-field";
 

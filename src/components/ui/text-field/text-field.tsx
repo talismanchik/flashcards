@@ -1,11 +1,12 @@
 import {ComponentPropsWithoutRef} from "react/index";
+import {Typography} from "@/components/ui/typography/typography";
 import s from "./text-field.module.scss"
-import {useState} from "react";
+import {forwardRef, useState} from "react";
 
 import clsx from 'clsx';
 import EyeOff from "@/assets/icons/eyeOff";
 import Search from "@/assets/icons/search";
-import {Typography} from "@/components/ui/typography/typography";
+
 import Eye from "@/assets/icons/eye";
 
 type TextFieldProps = {
@@ -17,7 +18,16 @@ type TextFieldProps = {
     disabled?: boolean
 } & ComponentPropsWithoutRef<'input'>
 
-export const TextField = ({type, placeholder, errorMessage, label, onValueChange, onChange, disabled}: TextFieldProps) => {
+export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(({
+                                                                           type,
+                                                                           placeholder,
+                                                                           errorMessage,
+                                                                           label,
+                                                                           onValueChange,
+                                                                           onChange,
+                                                                           disabled,
+                                                                           ...{otherProps}
+                                                                       }, ref) => {
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const isPasswordButtonShow = type === 'password'
     const isSearchButtonShow = type === 'search'
@@ -34,8 +44,8 @@ export const TextField = ({type, placeholder, errorMessage, label, onValueChange
     const classNames = {
         root: clsx(s.root),
         fieldContainer: clsx(s.fieldContainer),
-        field: clsx(s.field, errorMessage && s.error, isSearchButtonShow ? s.fieldWithSearch : s.fieldWithOutSearch,disabled&&s.disabledLabel),
-        label: clsx(s.label, disabled&& s.disabledLabel),
+        field: clsx(s.field, errorMessage && s.error, isSearchButtonShow ? s.fieldWithSearch : s.fieldWithOutSearch, disabled && s.disabledLabel),
+        label: clsx(s.label, disabled && s.disabledLabel),
         errorLabel: clsx(s.errorLabel)
     }
 
@@ -47,10 +57,13 @@ export const TextField = ({type, placeholder, errorMessage, label, onValueChange
                                 className={classNames.label}>{label}</Typography>
                 </div>}
             <div className={classNames.fieldContainer}>
-                <input type={showPassword ? 'text' : type} placeholder={errorMessage ? errorMessage : placeholder}
+                <input ref={ref} type={showPassword ? 'text' : type}
+                       placeholder={errorMessage ? errorMessage : placeholder}
                        onChange={onChangeHandler}
                        className={classNames.field}
-                       disabled={disabled}/>
+                       disabled={disabled}
+                       {...otherProps}
+                />
                 {isPasswordButtonShow &&
                     <button className={s.showPassword} onClick={() => setShowPassword(!showPassword)}>{showPassword ?
                         <EyeOff/> : <Eye/>}</button>}
@@ -67,4 +80,4 @@ export const TextField = ({type, placeholder, errorMessage, label, onValueChange
         </div>
 
     )
-}
+})
