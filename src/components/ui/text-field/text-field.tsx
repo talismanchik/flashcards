@@ -26,7 +26,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(({
                                                                            onValueChange,
                                                                            onChange,
                                                                            disabled,
-                                                                           ...{otherProps}
+                                                                           ...otherProps
                                                                        }, ref) => {
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const isPasswordButtonShow = type === 'password'
