@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
 import { Table } from '@/components/ui/table/table.tsx'
-import { CellContent } from '@/components/ui/table/table-primitives/table-primitives.tsx'
+
 import { Typography } from '@/components/ui/typography/typography.tsx'
 import ArrowUpIcon from '@/assets/icons/ArrowUpIcon.tsx'
 import PlayIcon from '@/assets/icons/PlayIcon.tsx'
@@ -32,26 +32,18 @@ export const Default: Story = {
       <>
         <Table.Head>
           <Table.Row>
-            <Table.HeadCell>
-              <CellContent variant={'columnName'}>
-                <Typography variant={'subtitle2'}>{'Name'}</Typography>
-              </CellContent>
+            <Table.HeadCell variant={'columnName'}>
+              <Typography variant={'subtitle2'}>{'Name'}</Typography>
             </Table.HeadCell>
-            <Table.HeadCell>
-              <CellContent variant={'columnName'}>
-                <Typography variant={'subtitle2'}>{'Cards'}</Typography>
-              </CellContent>
+            <Table.HeadCell variant={'columnName'}>
+              <Typography variant={'subtitle2'}>{'Cards'}</Typography>
             </Table.HeadCell>
-            <Table.HeadCell>
-              <CellContent variant={'columnNameIcon'}>
-                <Typography variant={'subtitle2'}>{'Last Updated'}</Typography>
-                <ArrowUpIcon />
-              </CellContent>
+            <Table.HeadCell variant={'columnNameIcon'}>
+              <Typography variant={'subtitle2'}>{'Last Updated'}</Typography>
+              <ArrowUpIcon />
             </Table.HeadCell>
-            <Table.HeadCell>
-              <CellContent variant={'columnName'}>
-                <Typography variant={'subtitle2'}>{'Created by'}</Typography>
-              </CellContent>
+            <Table.HeadCell variant={'columnName'}>
+              <Typography variant={'subtitle2'}>{'Created by'}</Typography>
             </Table.HeadCell>
             <Table.HeadCell />
           </Table.Row>
@@ -59,32 +51,22 @@ export const Default: Story = {
         <Table.Body>
           {ArgForMap.map(data => (
             <Table.Row>
-              <Table.Cell>
-                <CellContent variant={'cellText'}>
-                  <Typography variant={'body2'}>{data.Name}</Typography>
-                </CellContent>
+              <Table.Cell variant={'cellText'}>
+                <Typography variant={'body2'}>{data.Name}</Typography>
               </Table.Cell>
-              <Table.Cell>
-                <CellContent variant={'cellText'}>
-                  <Typography variant={'body2'}>{data.Cards}</Typography>
-                </CellContent>
+              <Table.Cell variant={'cellText'}>
+                <Typography variant={'body2'}>{data.Cards}</Typography>
               </Table.Cell>
-              <Table.Cell>
-                <CellContent variant={'cellText'}>
-                  <Typography variant={'body2'}>{data.LastUpdated}</Typography>
-                </CellContent>
+              <Table.Cell variant={'cellText'}>
+                <Typography variant={'body2'}>{data.LastUpdated}</Typography>
               </Table.Cell>
-              <Table.Cell>
-                <CellContent variant={'cellText'}>
-                  <Typography variant={'body2'}>{data.CreatedBy}</Typography>
-                </CellContent>
+              <Table.Cell variant={'cellText'}>
+                <Typography variant={'body2'}>{data.CreatedBy}</Typography>
               </Table.Cell>
-              <Table.Cell>
-                <CellContent variant={'cellIcons'}>
-                  <PlayIcon />
-                  <EditIcon />
-                  <TrashIcon />
-                </CellContent>
+              <Table.Cell variant={'cellIcons'}>
+                <PlayIcon />
+                <EditIcon />
+                <TrashIcon />
               </Table.Cell>
             </Table.Row>
           ))}

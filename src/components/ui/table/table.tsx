@@ -1,4 +1,4 @@
-import { ComponentProps, FC } from 'react'
+import { ComponentProps, ComponentPropsWithoutRef, FC, forwardRef, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -31,25 +31,52 @@ export const Row: FC<RowProps> = props => {
   return <tr {...props} />
 }
 
-export type HeadCellProps = ComponentProps<'th'>
+export type HeadCellProps = {
+  children?: ReactNode
+  variant?: 'columnName' | 'columnNameIcon'
+} & ComponentPropsWithoutRef<'th'>
 
-export const HeadCell: FC<HeadCellProps> = ({ className, ...rest }) => {
-  const classNames = {
-    headCell: clsx(className, s.headCell),
+export const HeadCell = forwardRef<HTMLTableCellElement, HeadCellProps>(
+  ({ children, variant = 'columnName', className, ...rest }, ref) => {
+    const classNames = {
+      headCell: clsx(s.headCell, className),
+      container: clsx(s[variant]),
+    }
+
+    return (
+      <th className={classNames.headCell} ref={ref} {...rest}>
+        <div className={classNames.container}>{children}</div>
+      </th>
+    )
   }
+)
 
-  return <th className={classNames.headCell} {...rest} />
-}
+export type CellProps = {
+  children?: ReactNode
+  variant?:
+    | 'cellText'
+    | 'cellCheckboxText'
+    | 'cellTextIcons'
+    | 'cellIcons'
+    | 'cellGrade'
+    | 'cellPhotoText'
+    | 'cellCheckbox'
+} & ComponentProps<'td'>
 
-export type CellProps = ComponentProps<'td'>
+export const Cell = forwardRef<HTMLTableCellElement, CellProps>(
+  ({ children, variant = 'cellText', className, ...rest }, ref) => {
+    const classNames = {
+      cell: clsx(s.tableCell, className),
+      container: clsx(s[variant]),
+    }
 
-export const Cell: FC<CellProps> = ({ className, ...rest }) => {
-  const classNames = {
-    cell: clsx(className, s.tableCell),
+    return (
+      <td className={classNames.cell} ref={ref} {...rest}>
+        <div className={classNames.container}>{children}</div>
+      </td>
+    )
   }
-
-  return <td className={classNames.cell} {...rest} />
-}
+)
 
 export const Table = {
   Root,
